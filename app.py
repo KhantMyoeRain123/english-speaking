@@ -68,13 +68,13 @@ else:
         split_text = re.split(r'(?<!\bMr)(?<!\bMrs)(?<=[.!?;])\s*|\n\n', text)
         return split_text
 
-    def speak(split):
-        for t in split:
-            if t=="":
-                continue
-            text_to_speak={"text": t}
-            deepgram.speak.rest.v("1").save(FILENAME, text_to_speak, options)
-            soundplay(FILENAME,1)
+    #def speak(split):
+        #for t in split:
+            #if t=="":
+                #continue
+            #text_to_speak={"text": t}
+            #deepgram.speak.rest.v("1").save(FILENAME, text_to_speak, options)
+            #soundplay(FILENAME,1)
         
         
     def response_generator(prompt):
@@ -138,8 +138,8 @@ else:
             response = st.write_stream(start_convo(topic,grammar,words))
         st.session_state.messages.append({"role": "user", "content": st.session_state.sys_prompt})
         st.session_state.messages.append({"role": "assistant", "content": response})
-        split=split_text(response)
-        speak(split)
+        #split=split_text(response)
+        #speak(split)
         
 
     # Reset button
@@ -158,6 +158,6 @@ else:
         with st.chat_message("assistant"):
             response = st.write_stream(response_generator(prompt))
         st.session_state.messages.append({"role": "assistant", "content": response})
-        split=split_text(response)
-        speak(split)
+        #split=split_text(response)
+        #speak(split)
         
