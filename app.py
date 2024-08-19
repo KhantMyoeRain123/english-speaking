@@ -94,6 +94,7 @@ else:
                    Grammars to Include:{grammar}
                    Words to Include:{words}
                    Firstly, start with describing the scenario in which the conversation is taking place.
+                   Then decide who will roleplay which character in the scenario.
                    The user will be roleplaying one of the characters in the scenario and you will be roleplaying all the other. Make sure to indicate who is talking. Finally, start off with the first line and only ONE line of the conversation and we will go back and forth.
                    IMPORTANT NOTES
                    ---------------
