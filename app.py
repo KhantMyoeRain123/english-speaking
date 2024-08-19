@@ -9,7 +9,7 @@ import re
 PASSWORD = st.secrets["password"]
 TOGETHER_API_KEY=st.secrets["together_api_key"]
 DEEPGRAM_API_KEY=st.secrets["deepgram_api_key"]
-CHATBOT="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+CHATBOT="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
 FILENAME="./audio.mp3"
 AUDIO_MODEL="aura-zeus-en"
 
@@ -95,9 +95,10 @@ else:
                    Words to Include:{words}
                    Firstly, start with describing the scenario in which the conversation is taking place.
                    Then decide who will roleplay which character in the scenario.
-                   The user will be roleplaying one of the characters in the scenario and you will be roleplaying all the other. Make sure to indicate who is talking. Finally, start off with the first line and only ONE line of the conversation and we will go back and forth.
+                   The user will be roleplaying one of the characters in the scenario and you will be roleplaying all the other. Finally, start off with the first line and only ONE line of the conversation and we will go back and forth.
                    IMPORTANT NOTES
                    ---------------
+                   -Make sure to indicate who is talking.
                    -The first line of the conversation should be that of your character.
                    -Keep the sentences short and easy to understand.
                    -Restrain on using too many compound sentences.
