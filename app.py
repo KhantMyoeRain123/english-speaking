@@ -3,7 +3,7 @@ import random
 import time
 from together import Together
 from deepgram import DeepgramClient, SpeakOptions
-import base64
+from preferredsoundplayer import *
 import re
 
 PASSWORD = st.secrets["password"]
@@ -68,27 +68,13 @@ else:
         split_text = re.split(r'(?<!\bMr)(?<!\bMrs)(?<=[.!?;])\s*|\n\n', text)
         return split_text
 
-    def autoplay_audio(file_path):
-        with open(file_path, "rb") as f:
-            data = f.read()
-            b64 = base64.b64encode(data).decode()
-            md = f"""
-                <audio controls autoplay="true">
-                <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
-                </audio>
-                """
-            st.markdown(
-                md,
-                unsafe_allow_html=True,
-            )
-
     def speak(split):
         for t in split:
             if t=="":
                 continue
             text_to_speak={"text": t}
             deepgram.speak.rest.v("1").save(FILENAME, text_to_speak, options)
-            autoplay_audio(FILENAME)
+            soundplay(FILENAME,1)
         
         
     def response_generator(prompt):
