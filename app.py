@@ -77,7 +77,7 @@ else:
             #soundplay(FILENAME,1)
         
         
-    def response_generator(prompt):
+    def response_generator():
         stream = client.chat.completions.create(
         model=CHATBOT,
         messages=st.session_state.messages,
@@ -130,6 +130,8 @@ else:
     for i,message in enumerate(st.session_state.messages):
         if i==0:
             continue
+        if message["role"]=="system":
+            continue
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
             
@@ -153,12 +155,22 @@ else:
         st.session_state.reset_clicked = False
         
     if prompt := st.chat_input("Enter your response..."):
+        st.session_state.messages.append({"role": "system", "content": """IMPORTANT NOTES
+                   ---------------
+                   -Make sure to indicate who is talking.
+                   -The first line of the conversation should be that of your character.
+                   -Keep the sentences short and easy to understand.
+                   -Restrain on using too many compound sentences.
+                   -Do not use any complex grammars except when explicitly mentioned to be included.
+                   -You will only write dialogues for characters you play.
+                   -No need to indicate that the user should speak by saying "Your turn!" or anything similar.
+                   -Keep the scenario description short."""})
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.markdown(prompt)
 
         with st.chat_message("assistant"):
-            response = st.write_stream(response_generator(prompt))
+            response = st.write_stream(response_generator())
         st.session_state.messages.append({"role": "assistant", "content": response})
         #split=split_text(response)
         #speak(split)
