@@ -2,4 +2,3 @@ streamlit
 together
 deepgram-sdk
 playsound
-pygobject
