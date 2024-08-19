@@ -74,7 +74,7 @@ else:
                 continue
             text_to_speak={"text": t}
             deepgram.speak.rest.v("1").save(FILENAME, text_to_speak, options)
-            playsound(FILENAME)
+            soundplay(FILENAME)
         
         
     def response_generator(prompt):
