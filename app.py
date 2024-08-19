@@ -9,7 +9,7 @@ import re
 PASSWORD = st.secrets["password"]
 TOGETHER_API_KEY=st.secrets["together_api_key"]
 DEEPGRAM_API_KEY=st.secrets["deepgram_api_key"]
-CHATBOT="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
+CHATBOT="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
 FILENAME="./audio.mp3"
 AUDIO_MODEL="aura-zeus-en"
 
