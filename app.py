@@ -3,7 +3,7 @@ import random
 import time
 from together import Together
 from deepgram import DeepgramClient, SpeakOptions
-from playsound import playsound
+from preferredsoundplayer import playsound
 import re
 
 PASSWORD = st.secrets["password"]
