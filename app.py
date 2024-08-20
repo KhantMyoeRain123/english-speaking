@@ -117,7 +117,13 @@ else:
             yield chunk.choices[0].delta.content
 
     st.title("Talk With Me!")
-    
+    instruction = """1. Open the Sidebar: If the sidebar is not open, click the arrow at the top left corner to reveal it.\n
+    2. Set Parameters: In the sidebar, add the topic, grammar, and words you want to focus on for the conversation.\n
+    3. Start the Conversation: Press the 'Start Conversation' button to begin.\n
+    4. Reset: If you’re satisfied or want to start over, click the 'Reset' button."""
+
+    st.write("Instructions")
+    st.write(instruction)
     
     st.sidebar.header("Requirements")
     topic = st.sidebar.text_input("Topic", key="topic", value=st.session_state.topic)
