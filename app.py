@@ -117,7 +117,7 @@ else:
             yield chunk.choices[0].delta.content
 
     st.title("Talk With Me!")
-    st.write("Instructions")
+    
     
     st.sidebar.header("Requirements")
     topic = st.sidebar.text_input("Topic", key="topic", value=st.session_state.topic)
